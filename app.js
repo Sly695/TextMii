@@ -10,9 +10,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-
-require('./models/bdd')
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
 
