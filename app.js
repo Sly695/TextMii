@@ -10,10 +10,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-const PORT = process.env.PORT || 3000;
-const INDEX = '/index.html';
-
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
 
