@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import styled from 'styled-components';
 import { SocketContext } from '../../App';
 import {
   UserContainer,

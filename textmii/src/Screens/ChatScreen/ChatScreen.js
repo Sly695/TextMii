@@ -8,10 +8,6 @@ import {
   ChatContainer,
   ChatWrap,
   UserChatWrap,
-  ChatWrapContainer,
-  ChatDisplayConversation,
-  ChatDisplayUser,
-  ChatConversation
 }
   from './ChatScreenElements';
 
@@ -21,7 +17,6 @@ export const ChatScreen = (props) => {
 
   const [socketRoomId, setSocketRoomId] = useState("");
   const [destinataire, setDestinataire] = useState("");
-  const [listConversation, setListConversation] = useState([]);
 
   const handleClick = (socketRoom, destinataire) => {
     setSocketRoomId(socketRoom);

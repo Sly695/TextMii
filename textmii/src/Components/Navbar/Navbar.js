@@ -1,5 +1,4 @@
-import React, { useContext} from 'react';
-import { SocketContext } from '../../App';
+import React from 'react';
 import {
   NavbarContainer,
   NavbarLogo,
@@ -9,8 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = (props) => {
-
-  const socket = useContext(SocketContext);
 
   return (
 

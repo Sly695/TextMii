@@ -6,7 +6,6 @@ import {
 
   ChatContainer,
   ChatWrap,
-  ChatWrapContainer,
 
   //EXPEDITEUR
   ChatExpWrap,
@@ -16,10 +15,6 @@ import {
   MessageExp,
   DateExp,
   ChatExpContainer,
-
-  //LISTE EXPEDITITEUR
-  ExpItemWrap,
-  ExpItem,
 
   //DESTINATAIRE
   ChatDestWrap,
