@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, 'textmii/build')));
+app.use(express.static(path.join(__dirname, 'textmii/public')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
