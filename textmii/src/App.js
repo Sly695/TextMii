@@ -4,7 +4,7 @@ import SignInSignUp from './Screens/SignInSignUp/SignInSignUp';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChatScreen } from './Screens/ChatScreen/ChatScreen';
 import socketIOClient from "socket.io-client";
-export const socket = socketIOClient("http://localhost:3000");
+export const socket = socketIOClient("https://textmii.herokuapp.com/");
 export const SocketContext = React.createContext();
 
 
