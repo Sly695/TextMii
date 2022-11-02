@@ -19,7 +19,7 @@ export const NavbarLogoWrap = styled.div`
 export const NavbarLogo = styled.h1`
     margin: auto;
     color: #5AC5E6;
-    width: 160px;
+    width: 180px;
     text-align: center;
     font-size: 30px;
     display: flex;
