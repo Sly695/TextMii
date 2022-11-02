@@ -29,7 +29,7 @@ export const PresentationWrap = styled.div`
 
     @media screen and (max-width: 780px){
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         border-radius: 0px;
         flex-direction: column;
     };
@@ -105,7 +105,7 @@ export const LoginWrap = styled.div`
 
     @media screen and (max-width: 780px){
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         border-radius: 0px;
     };
 `;

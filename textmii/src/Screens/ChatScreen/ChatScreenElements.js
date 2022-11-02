@@ -22,7 +22,7 @@ export const ChatContainer = styled.div`
 
   @media screen and (max-width: 780px){
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     border-radius: 0px;
