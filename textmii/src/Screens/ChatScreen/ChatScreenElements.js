@@ -6,11 +6,7 @@ export const ChatWrap = styled.div`
   display: flex;
   background: rgb(53,68,73);
   background: radial-gradient(circle, rgba(53,68,73,1) 0%, rgba(0,0,0,1) 100%);
-  
-  @media screen and (max-width: 780px){
-    width: 0;
-    height: 0;
-  }
+
 
 `;
 
@@ -27,6 +23,7 @@ export const ChatContainer = styled.div`
   @media screen and (max-width: 780px){
     width: 100vw;
     height: 100vh;
+    border-radius: 0px;
   }
 
   
