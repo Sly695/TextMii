@@ -19,7 +19,7 @@ export const ChatContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 60vw;
-  height: 100vh;
+  height: 80vh;
   margin: auto;
   background: rgb(241,252,255);
   border-radius: 20px;
