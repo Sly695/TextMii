@@ -7,6 +7,9 @@ export const LoginContainer = styled.div`
     display: flex;
     background: rgb(53,68,73);
     background: radial-gradient(circle, rgba(53,68,73,1) 0%, rgba(0,0,0,1) 100%);
+    @import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap');
+
+
 `;
 
 //////////////////// PRESENTATION 
@@ -23,7 +26,13 @@ export const PresentationWrap = styled.div`
 
     background: rgb(241,252,255);
     background: linear-gradient(10deg, rgba(241,252,255,1) 73%, rgba(90,197,230,1) 100%);    
-    
+
+    @media screen and (max-width: 780px){
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+        flex-direction: column;
+    };
 `;
 
 export const TextMiiWrap = styled.div`
@@ -72,6 +81,11 @@ export const PresentationImg = styled.img`
         transition: all 0.2s ease-in-out;
         cursor: pointer;
     }
+
+    @media screen and (max-width: 780px){
+        width: 120px;
+        height: 120px;
+    };
 `;
 
 
@@ -89,14 +103,29 @@ export const LoginWrap = styled.div`
     background: rgb(241,252,255);
     background: linear-gradient(10deg, rgba(241,252,255,1) 73%, rgba(90,197,230,1) 100%);
 
+    @media screen and (max-width: 780px){
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+    };
 `;
 
 export const LoginTitle = styled.h1`
+    width: 100%;
+    height: 100%;
     margin: auto;
-    color: #5AC5E6;
-    font-size: 50px;
+    
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 100px;
 
-    font-family: 'Arial black';
+    color: #5AC5E6;
+    -webkit-text-stroke: 3px #5AC5E6;
+
+
+
 `;
 
 export const LoginUsernameTitle = styled.h2`
@@ -115,12 +144,13 @@ export const LogContainer = styled.div`
 export const LoginInput = styled.input`
     text-align: center;
     border-radius: 50px;
-    margin: auto;
     margin-top: 5px;
     height: 40px;
     width: 200px;
     outline: none;
     border: 1px solid #5AC5E6;
+    margin-left: auto;
+    margin-right: auto;
 
 `;
 
@@ -155,7 +185,17 @@ export const LinkLogin = styled(Link)`
     text-decoration: none;
     color: #fff;
 
+`;
 
+export const LoginLogo = styled.img`    
+    width: 70%;
+    height: 70%;
+    margin: auto;
+`;
+
+export const LoginLogoWrap = styled.div`
+    display: flex;
+    height: 100px;
 `;
 
 

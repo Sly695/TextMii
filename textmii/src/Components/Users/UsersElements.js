@@ -7,6 +7,10 @@ export const UserContainer = styled.div`
     flex-direction: column;
     border-right: 1px solid #EDEDED;
     border-radius: 0 0 0 5%;
+
+    @media screen and (max-width: 480px){
+        width: 40%;
+    }
 `;
 
 
@@ -75,10 +79,10 @@ export const LabelWrap = styled.div`
 `;
 
 export const UserWrap = styled.div`
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+
 `;
 
 export const LabelTitle = styled.p`
@@ -86,11 +90,11 @@ export const LabelTitle = styled.p`
 `;
 
 export const Button = styled.button`
-    width: 94%;
+    width: 85%;
     border-radius: 50px;
-    height: 50px;
+    height: 70%;
     text-align: center;
-    margin: 8px;
+    margin: auto;
     border: none;
     border: 1px solid #5AC5E6;
     background-color : #5AC5E6;
@@ -105,3 +109,10 @@ export const Button = styled.button`
         cursor: pointer;
     }
 `;
+
+export const ButtonWrap = styled.div`
+    width: 100%;
+    height: 10%;
+    display: flex;
+`;
+

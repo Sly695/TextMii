@@ -7,6 +7,11 @@ export const ChatWrap = styled.div`
   background: rgb(53,68,73);
   background: radial-gradient(circle, rgba(53,68,73,1) 0%, rgba(0,0,0,1) 100%);
   
+  @media screen and (max-width: 780px){
+    width: 0;
+    height: 0;
+  }
+
 `;
 
 export const ChatContainer = styled.div`
@@ -16,10 +21,15 @@ export const ChatContainer = styled.div`
   width: 60vw;
   height: 80vh;
   margin: auto;
-
   background: rgb(241,252,255);
-
   border-radius: 20px;
+
+  @media screen and (max-width: 780px){
+    width: 100vw;
+    height: 100vh;
+  }
+
+  
 `;
 
 export const NavBarWrap = styled.div`

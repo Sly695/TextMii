@@ -6,7 +6,8 @@ import {
   UsernameLabel,
   UserWrap,
   LabelTitle,
-  Button
+  Button,
+  ButtonWrap
 } from './UsersElements';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -42,7 +43,7 @@ const Users = (props) => {
   }
 
   let displayUser = allUser.filter(user => user.username !== props.username).map((user, i) => {
-    return <UsernameLabel select={selected} i={i}  onClick={() => {changeColor( i ); props.handleClick(user.socketId, user.username) }} key={i} ><FontAwesomeIcon style={{ marginRight: "10px" }} icon={faUser} />{user.username}</UsernameLabel>
+    return <UsernameLabel select={selected} i={i} onClick={() => { changeColor(i); props.handleClick(user.socketId, user.username) }} key={i} ><FontAwesomeIcon style={{ marginRight: "10px" }} icon={faUser} />{user.username}</UsernameLabel>
   })
 
   return (
@@ -53,7 +54,9 @@ const Users = (props) => {
       <UserWrap>
         {displayUser}
       </UserWrap>
-      <Button onClick={() => setDataKey(!dataKey)}>Rafraîchir</Button>
+      <ButtonWrap>
+        <Button onClick={() => setDataKey(!dataKey)}>Rafraîchir</Button>
+      </ButtonWrap>
     </UserContainer>
   )
 }

@@ -18,10 +18,14 @@ import {
     LogContainer,
     LoginInput,
     LoginButton,
-    
+    LoginLogo,
+    LoginLogoWrap
 } from '../SignInSignUp/SignInSignUpElements';
 
-const SignInSignUp = ({handleClick}) => {
+import TextMiiLogo from '../../Images/LogoTextMii.svg'
+
+
+const SignInSignUp = ({ handleClick }) => {
 
     const [visible, setVisible] = useState(true);
     const [username, setUsername] = useState("")
@@ -47,9 +51,12 @@ const SignInSignUp = ({handleClick}) => {
         login =
             <LoginWrap>
                 <LogContainer>
-                    <LoginTitle onClick={() => setVisible(!visible)}><FontAwesomeIcon icon={faPaperPlane} /> TextMii</LoginTitle>
+                    <LoginLogoWrap>
+                        <LoginTitle onClick={() => setVisible(!visible)}>TextMii</LoginTitle>
+                        <LoginLogo src={TextMiiLogo} />
+                    </LoginLogoWrap>
                     <LoginInput onChange={(e) => setUsername(e.target.value)} placeholder='Prénom'></LoginInput>
-                    <LinkLogin to={'/chat'} state={{ username: username }}activeClassName="active"><LoginButton disabled={username.length === 0} onClick={() => handleClick(username)}>Se connecter</LoginButton></LinkLogin>
+                    <LinkLogin to={'/chat'} state={{ username: username }}><LoginButton disabled={username.length === 0} onClick={() => handleClick(username)}>Se connecter</LoginButton></LinkLogin>
                 </LogContainer>
             </LoginWrap>
 

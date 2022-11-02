@@ -67,11 +67,8 @@ const Chat = (props) => {
 
   let displayMessage = listMessage.filter(message => message.room === props.socketRoomId || message.socketExp === props.socketRoomId).map(function (message, i) {
 
-    console.log(listMessage)
     for (const [key, value] of Object.entries(message)) {
-      console.log({"value" : listMessage[i]})
       if (key === "messageDest") {
-
         return (
           <ChatExpWrap>
             <ChatExpContainer>

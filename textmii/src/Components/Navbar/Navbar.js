@@ -3,22 +3,25 @@ import {
   NavbarContainer,
   NavbarLogo,
   NavBarUsername,
+  NavBarSpan,
+  NavbarLogoWrap,
+  NavbarLogoImg
 } from './NavbarElements';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
+import LogoTextMii from '../../../src/Images/LogoTextMii.svg'
 
 const Navbar = (props) => {
 
   return (
 
-      <NavbarContainer>
-        <NavbarLogo>
-          <FontAwesomeIcon icon={faPaperPlane}/> TextMii
-        </NavbarLogo>
-        <NavBarUsername>
-          Bienvenue {props.username}
-        </NavBarUsername>
-      </NavbarContainer>
+    <NavbarContainer>
+      <NavbarLogoWrap>
+        <NavbarLogo>Text Mii<NavbarLogoImg src={LogoTextMii} /></NavbarLogo>
+      </NavbarLogoWrap>
+      <NavBarUsername>
+        <NavBarSpan>Bienvenue </NavBarSpan>{props.username}
+      </NavBarUsername>
+    </NavbarContainer>
 
   )
 }
