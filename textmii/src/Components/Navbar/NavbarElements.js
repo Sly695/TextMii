@@ -6,7 +6,10 @@ export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-around;
     border-radius: 5% 5% 0 0 ;    
-    @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@700&display=swap');`;
+    @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@700&display=swap');
+    overflow: no-scroll;
+    
+    `;
 
 export const NavbarLogoWrap = styled.div`
     display: flex;
@@ -18,7 +21,7 @@ export const NavbarLogo = styled.h1`
     color: #5AC5E6;
     width: 160px;
     text-align: center;
-    font-size: 36px;
+    font-size: 30px;
     display: flex;
     font-family: 'Kodchasan';
     -webkit-text-stroke: 1px #5AC5E6;
