@@ -1,25 +1,23 @@
 import React, { useState } from 'react'
-import './App.css';
-import SignInSignUp from './Screens/SignInSignUp/SignInSignUp';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignInSignUp from './Screens/SignInSignUp/SignInSignUp';
 import { ChatScreen } from './Screens/ChatScreen/ChatScreen';
+
 import socketIOClient from "socket.io-client";
-import GlobalFonts from './Fonts/fontStyles';
-export const socket = socketIOClient("https://textmii.herokuapp.com/");
+export const socket = socketIOClient("http://localhost:3000/");
 export const SocketContext = React.createContext();
 
 
 function App() {
 
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
 
   const handleClick = username => {
-    setUsername(username)
+    setUsername(username);
   };
 
   return (
     <SocketContext.Provider value={socket} >
-      <GlobalFonts />
       <Router>
         <Routes>
           <Route exact path='/' element={<SignInSignUp handleClick={handleClick} />} />

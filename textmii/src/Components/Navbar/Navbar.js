@@ -16,7 +16,7 @@ const Navbar = (props) => {
 
     <NavbarContainer>
       <NavbarLogoWrap>
-        <NavbarLogo>Text Mii<NavbarLogoImg src={LogoTextMii} /></NavbarLogo>
+        <NavbarLogo>TextMii<NavbarLogoImg src={LogoTextMii} /></NavbarLogo>
       </NavbarLogoWrap>
       <NavBarUsername>
         <NavBarSpan>Bienvenue </NavBarSpan>{props.username}

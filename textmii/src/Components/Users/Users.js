@@ -13,6 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
+import { io } from "socket.io-client";
 
 const Users = (props) => {
 
@@ -24,12 +25,19 @@ const Users = (props) => {
 
   useEffect(() => {
 
+    const token = io({
+      auth: {
+        token: "abc",
+      }
+    });
+
     socket.emit("login", props.username);
 
-    socket.on('userConnected', (userConnected) => {
-      setAllUserConnected(userConnected)
+    socket.on('userConnected', (userConnected, sessionID) => {
+      setAllUserConnected(userConnected);
+      console.log(userConnected)
+      console.log(sessionID)
     })
-
 
   }, [dataKey]);
 

@@ -1,14 +1,17 @@
 var createError = require('http-errors');
 require("dotenv").config();
 var express = require('express');
+var app = express();
 var path = require('path');
+const http = require('http');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const server = http.createServer(app);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -16,6 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(path.join(__dirname, 'textmii/build')));
 

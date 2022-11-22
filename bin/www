@@ -4,6 +4,8 @@
  * Module dependencies.
  */
 
+const session = require("express-session");
+
 var app = require('../app');
 var debug = require('debug')('textmiibackend:server');
 var http = require('http');
@@ -33,11 +35,23 @@ const { instrument } = require('@socket.io/admin-ui');
 
 let userConnected = {};
 
-//Mise en écoute de l'événement “connection”
-io.on('connection', function (socket) {
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token;
+  if (token) {
+    const session = sessionStore.findSession(token);
+    console.log(session)
+    next();
+  }
+  // // create new session
+  // socket.sessionID = randomId();
 
-  var clients = io.of('/chat').server.eio.clientsCount;
+  next();
+})
 
+
+
+io.on('connection', function (socket) { //Mise en écoute de l'événement “connection”
+  const sessionID = socket.handshake.auth.sessionID;
   socket.on('sendMessage', function (message, room) {
     if (room === "") {
       socket.broadcast.emit("sendMessageBack", message)
@@ -47,16 +61,17 @@ io.on('connection', function (socket) {
   });
 
   socket.on("login", function (username) {
+    const session = socket.request.session;
+    console.log(session)
     userConnected[socket.id] = username;
-    socket.emit("userConnected", userConnected, clients);
-    console.log({"connected" : userConnected});
-    console.log(clients)
+    socket.emit("userConnected", userConnected);
+    console.log({ "connected": userConnected });
   })
 
   socket.on('disconnect', function () {
     delete userConnected[socket.id];
     socket.emit("userConnected", userConnected);
-    console.log({"disconnected" : userConnected});
+    console.log({ "disconnected": userConnected });
   });
 
 
