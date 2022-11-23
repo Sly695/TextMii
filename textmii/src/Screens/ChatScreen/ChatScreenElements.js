@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ChatWrap = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   background: rgb(53,68,73);
   background: radial-gradient(circle, rgba(53,68,73,1) 0%, rgba(0,0,0,1) 100%);
