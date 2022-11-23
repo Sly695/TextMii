@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { SocketContext } from '../../App';
@@ -36,7 +36,7 @@ import {
 
 const Chat = (props) => {
 
-  const [message, setMessage] = useState([]);
+  const [message, setMessage] = useState();
   const [listDestinataire, setListDestinataire] = useState([]);
   const [room, setRoom] = useState("");
   const [listMessage, setListMessage] = useState([]);
@@ -46,13 +46,21 @@ const Chat = (props) => {
     display: "none"
   }
 
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    console.log(messagesEndRef.current)
+  }
+
   useEffect(() => {
 
     //L'ouverture d'la page va requete l'idSocket
     socket.on('sendMessageFromBack', (message, room, socketExp) => {
-      setListMessage([...listMessage, { messageDest: message, room: room, socketExp : socketExp}]);
+      setListMessage([...listMessage, { messageDest: message, room: room, socketExp: socketExp }]);
     });
 
+    scrollToBottom()
 
   }, [listMessage, props.socket])
 
@@ -63,7 +71,18 @@ const Chat = (props) => {
       setListDestinataire(listDestinataire => [...listDestinataire, { "roomId": props.socketRoomId, "destinataire": props.destinataire }])
     }
 
+
   }, [props.socketRoomId])
+
+  function sendMessage() {
+    console.log(message)
+    console.log(room)
+    if (message && props.socketRoomId) {
+      socket.emit('sendMessage', message, room);
+      setMessage("");
+      setListMessage([...listMessage, { messageExt: message, room: props.socketRoomId, socketExp: socket.id }]);
+    }
+  }
 
   let displayMessage = listMessage.filter(message => message.room === props.socketRoomId || message.socketExp === props.socketRoomId).map(function (message, i) {
 
@@ -84,7 +103,7 @@ const Chat = (props) => {
             </ChatExpContainer>
           </ChatExpWrap>
         )
-      } else if(key === "messageExt") {
+      } else if (key === "messageExt") {
         return (
           <ChatDestWrap>
             <ChatDestContainer>
@@ -107,18 +126,14 @@ const Chat = (props) => {
 
   return (
     <ChatContainer>
-        <ChatWrap>
-          {displayMessage}
-        </ChatWrap>
-        <ChatSend>
-          <ChatInput placeholder="Message" value={message} onChange={(arg) => setMessage(arg.target.value)}></ChatInput>
-          <ChatButton
-            onClick={() => {
-              socket.emit('sendMessage', message, room);
-              setMessage("");
-              setListMessage([...listMessage, { messageExt: message, room: props.socketRoomId, socketExp: socket.id }]);
-            }}>Envoyer</ChatButton>
-        </ChatSend>
+      <ChatWrap>
+        {displayMessage}
+        <div ref={messagesEndRef}/>
+      </ChatWrap>
+      <ChatSend>
+        <ChatInput placeholder="Message" value={message} onChange={(arg) => setMessage(arg.target.value)}></ChatInput>
+        <ChatButton onClick={() => sendMessage()}>Envoyer</ChatButton>
+      </ChatSend>
     </ChatContainer >
   )
 }
