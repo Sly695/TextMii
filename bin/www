@@ -35,21 +35,6 @@ const { instrument } = require('@socket.io/admin-ui');
 
 let userConnected = {};
 
-io.use((socket, next) => {
-  const token = socket.handshake.auth.token;
-  if (token) {
-    const session = sessionStore.findSession(token);
-    console.log(session)
-    next();
-  }
-  // // create new session
-  // socket.sessionID = randomId();
-
-  next();
-})
-
-
-
 io.on('connection', function (socket) { //Mise en écoute de l'événement “connection”
   const sessionID = socket.handshake.auth.sessionID;
   socket.on('sendMessage', function (message, room) {

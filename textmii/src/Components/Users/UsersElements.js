@@ -86,7 +86,7 @@ export const UserWrap = styled.div`
 `;
 
 export const LabelTitle = styled.p`
-
+    padding: 10px;
 `;
 
 export const Button = styled.button`
