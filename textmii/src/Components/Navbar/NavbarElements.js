@@ -25,16 +25,12 @@ export const NavbarLogo = styled.h1`
     display: flex;
     font-family: 'Kodchasan';
     -webkit-text-stroke: 1px #5AC5E6;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 39px;
 
 `;
 
 export const NavBarUsername = styled.p`
-    font-weight: bold;
-    font-size: 24px;
+    font-weight: normal;
+    font-size: 30px;
     color: #5ac5e6;
     width: 100vw;
     text-align: center;

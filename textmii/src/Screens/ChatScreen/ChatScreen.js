@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/Navbar';
 import Chat from '../../Components/Chat/Chat';
 import Users from '../../Components/Users/Users';

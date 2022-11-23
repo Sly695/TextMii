@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import TextImg from '../../Images/TextImg.svg';
 import DateImg from '../../Images/Date.svg';
-import Play from '../../Images/play.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import Play from '../../Images/play.svg';
 
 import {
     LoginContainer,
