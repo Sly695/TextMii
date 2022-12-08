@@ -50,7 +50,6 @@ const Chat = (props) => {
 
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    console.log(messagesEndRef.current)
   }
 
   useEffect(() => {
